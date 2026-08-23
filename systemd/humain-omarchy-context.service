@@ -1,0 +1,13 @@
+[Unit]
+Description=HumAIn Omarchy local public-pointer context adapter
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.local/share/humain-omarchypi
+ExecStart=/usr/bin/python3 %h/.local/share/humain-omarchypi/omarchy/context_server.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

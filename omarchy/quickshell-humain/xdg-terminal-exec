@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# ARM-lab compatibility shim for Omarchy's terminal resolver.
+if [[ ${1:-} == "--print-id" ]]; then
+  printf '%s\n' 'foot'
+  exit 0
+fi
+exec /usr/bin/foot "$@"

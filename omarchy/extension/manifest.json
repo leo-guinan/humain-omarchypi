@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "HumAIn OS Lens",
+  "version": "0.1.0",
+  "description": "Explicitly resolve the current public pointer through the local HumAIn adapter.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["http://127.0.0.1:8787/*"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_title": "Resolve this public pointer", "default_popup": "popup.html"},
+  "content_scripts": [{"matches": ["<all_urls>"], "js": ["content.js"], "run_at": "document_idle"}],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'self'"}
+}
