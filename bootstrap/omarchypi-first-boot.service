@@ -1,0 +1,14 @@
+[Unit]
+Description=OmarchyPi first-boot node identity
+ConditionPathExists=!/var/lib/omarchypi/initialized
+After=local-fs.target
+Before=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/lib/omarchypi/first-boot-node.py
+Environment=OMARCHYPI_STATE_DIR=/var/lib/omarchypi
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

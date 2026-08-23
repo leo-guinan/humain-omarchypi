@@ -24,6 +24,21 @@ It does not install Omarchy, replace the OS, read browser history, read cookies,
 
 ## Install on another Pi
 
+There are two supported paths.
+
+### Path A: bootstrap a fresh Manjaro ARM Pi
+
+Start from a verified 64-bit Manjaro ARM image, boot the Pi, and clone this repository. Then run:
+
+```bash
+chmod +x bootstrap/prepare-node.sh
+./bootstrap/prepare-node.sh
+```
+
+This installs the ARM-compatible desktop/build prerequisites, clones Omarchy if needed, builds ARM64 Quickshell with `CRASH_HANDLER=OFF` when Quickshell is absent, installs the HumAIn layer, and enables the first-boot identity service. It never writes an SD card and never enrolls the node into a coordinator.
+
+### Path B: install the HumAIn layer on an already-prepared OmarchyPi
+
 Clone or copy this repository to the Pi, then run:
 
 ```bash
