@@ -58,6 +58,20 @@ curl -fsS http://127.0.0.1:8787/healthz
 
 The current Omarchy lab uses `Super+Q` to open the terminal. On an Apple keyboard, this is usually `Command+Q`; on a Windows/Linux keyboard, use the Windows key plus Q. The exact modifier depends on the keyboard mapping.
 
+## Validate a node
+
+After bootstrap and reboot, run the target-side acceptance probe:
+
+```bash
+./bootstrap/validate-node.sh
+```
+
+It checks architecture, Manjaro ARM, native desktop packages, Quickshell, the shell module, the loopback service, the public-only demo, first-boot service state, and node identity. It does not claim a physical image or second-node pass by itself.
+
+## First bounded swarm layer
+
+The first swarm artifact is a typed health receipt under `swarm/`. It reports node capability and service health only. It does not provide remote execution, desktop control, browser surveillance, credential distribution, or automatic mutation. See `swarm/README.md` and `docs/OMARCHYPI-NODE-ARCHITECTURE.md`.
+
 ## Uninstall
 
 ```bash
